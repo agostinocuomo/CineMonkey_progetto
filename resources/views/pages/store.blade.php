@@ -2,21 +2,28 @@
     <x-slot:vite></x-slot>
 
  {{--    TUTTI I PRODOTTI--------- --}}
- <div class="container-fluid">
-<div class="row flex-wrap">
-
-
+ 
+    <div class="d-flex flex-wrap justify-content-between">
  @foreach($film as $titolo)
-<a href="{{ route('titolo', ['film'=>$titolo]) }}">
-<div class="col-3 m-2" style="background-image: url( @if(Storage::disk('local')->exists($titolo->image) )    {{Storage::url($titolo->image)}}  @else {{$titolo->image}} @endif)">
 
-    <h3>{{$titolo->name}}</h3>
-</div>
+ <div class="card" style="width: 18rem;">
+    <img src="@if(Storage::disk('local')->exists($titolo->image) )    {{Storage::url($titolo->image)}}  @else {{$titolo->image}} @endif" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h1>{{$titolo->name}}</h1>
+    </div>
+  </div>
+<a href="{{ route('titolo', ['film'=>$titolo]) }}">
+    <div class="card" style="width: 18rem;">
+        <img src="@if(Storage::disk('local')->exists($titolo->image) )    {{Storage::url($titolo->image)}}  @else {{$titolo->image}} @endif" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h1>{{$titolo->name}}</h1>
+        </div>
+      </div>
 </a>
 @endforeach
 
 </div>
- </div>
+
 
 
 </x-main>

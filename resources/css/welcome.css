@@ -61,3 +61,15 @@ body{
 .bottone{
   background-image: var(--colorebtn);
 }
+
+
+.open{
+ transform:scale(1.3);
+/*  transform: scale(2); */
+  z-index: 3;
+  /* position: absolute;
+  top: 50%;
+  right: 10%; */
+
+}
+

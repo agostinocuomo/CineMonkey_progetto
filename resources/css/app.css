@@ -1,4 +1,13 @@
 @import 'bootstrap';
 
 
+:root{
+    --coloreNav:  radial-gradient( rgba(110, 109, 16, 0.3) 20%,   rgba(110, 109, 16, 0.7) 80%);
+    --colorebtn:  linear-gradient( rgba(39, 99, 57, 0.884) 30%,   rgba(28, 197, 42, 0.7) 50%);
+    --coloresfondo: radial-gradient( rgba(143, 141, 21, 0.3) 20%,   rgba(206, 203, 12, 0.7) 80%);
+  }
+
+body{
+    background-image: var(--coloresfondo);
+  }
 

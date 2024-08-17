@@ -9,6 +9,7 @@ Route::get('store', [ControllerPage::class, 'store'])->name('store');
 Route::get('update', [ControllerPage::class, 'update'])->name('update')->middleware(admin::class);
 Route::post('uploadTitolo',[ControllerPage::class, 'uploadTitolo'])->name('uploadTitolo');
 Route::get('titolo{film}',[ControllerPage::class, 'titolo'])->name('titolo');
+Route::get('genere{tipo}',[ControllerPage::class, 'genere'])->name('genere');
 
 
 

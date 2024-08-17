@@ -32,66 +32,57 @@
 
     @foreach($film as $titolo)
 
-
-    <div class="swiper-slide " id="slide" value="<?php echo $titolo->name ?>" value2="<?php echo $titolo->descrizione ?>" style="background-image: url( @if(Storage::disk('local')->exists($titolo->image))
+    
+    <a href="{{route('titolo',['film'=>$titolo])}}" class="swiper-slide " id="slide" value="<?php echo $titolo->name ?>" value2="<?php echo $titolo->descrizione ?>" value3="<?php echo $titolo ?>" style="background-image: url( @if(Storage::disk('local')->exists($titolo->image))
     {{Storage::url($titolo->image)}}
     @else {{$titolo->image}} @endif); ">
-    
-    </div>
-   @endforeach
 
-  
+    </a>
+   
+   @endforeach
    
   </div>
  {{--  <div class="swiper-pagination " ></div> --}}
 </div>
+{{-- <button class="hidden float-end" id="bottone"> X </button>  --}}
 
+
+
+
+
+
+{{-- ----------DA VEDERE --}}
 <script type="text/javascript">
   let slide= document.querySelectorAll('#slide');
- 
   
-  let chiusura=false;
-    
   
-    function  openCard(){
-      if(chiusura==false){
 
-        
-        chiusura=true;
-    slide.forEach(element => {
-        element.addEventListener('click',()=>{
-            element.style.zIndex='3';
-            element.style.transform='scale(2) ';
-            element.classList.remove('.swiper-slide');
-            element.classList.add('.open');
-            element.style.position='static';
-            element.style.top='50%';
-            element.style.left=`50%`;
-           element.innerHTML="";
-           element.innerHTML='<button class="float-end bottone" id="bottone"> X </button> <h1 class="text-center">'+element.getAttribute('value')+' </h1>'+"<br>"+'<p class="text-center">'+element.getAttribute('value2')+'</p>'+'<button class="bottone" id="bottone">Vai alla pagina</button>';
+   slide.forEach(element => {
+     
+         element.addEventListener('mouseover',()=>{
+         
+           
+           /*  element.classList.remove('.swiper-slide'); */
+            element.classList.add('open');
+            element.innerHTML="";
+           element.innerHTML= `<h1 class="text-center">`+element.getAttribute('value')+' </h1>'+"<br>"+'<p class="text-center">'+element.getAttribute('value2')+'</p>';
+          
             console.log('successo');
-            
-           })
-          });
-        };
-        };
-      /*   ----non funziona */
-        function closeCard() {
-          let closedbutton= document.querySelector('#bottone');
-          let open= document.querySelector('.open');
-          console.log(open);
-          console.log(closedbutton)
-         /*  Xbtn.addEventListener('click', ()=>{
-            open.innerHTML="";
-          }); */
-        }
+          
+           });
+
+
+           element.addEventListener('mouseout', ()=>{
         
-        openCard();
-        closeCard();
-        </script>
+           
+           element.classList.remove('open');
+            element.innerHTML="";
+           
+           }); 
+        
 
-
-
+          });
+</script> 
 
 
 <div class="diviso"></div>

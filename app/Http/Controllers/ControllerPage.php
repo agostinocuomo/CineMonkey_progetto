@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests\uploadRequest;
 use App\Models\Categorie;
 use Illuminate\Support\Facades\Storage;
@@ -62,8 +62,6 @@ class ControllerPage extends Controller
         return redirect()->route('update')->with('messages', 'Salvataggio non riuscito');
        }
 
-   
-
     }
 
     public function titolo(Film $film, Recensioni $recensioni,Categorie $category, User $user){
@@ -75,6 +73,17 @@ class ControllerPage extends Controller
              
         return view('pages/titolo', compact('film', 'recensioni','user','category'));
     }
+
+
+    public function genere(Film $film){
+   $horror=  DB::table('film')->where('film_id','3')->get();
+ return view('pages/genere',['horror'=>$horror]);
+    }
+
+
 }
+
+  
+
 
 

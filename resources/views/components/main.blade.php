@@ -44,7 +44,7 @@
                 <a class="nav-link active" href="{{route('store')}}">Tutti i prodotti</a>
               </li>
               <li class="nav-item border border-4 border-warning-subtle mx-2">
-                <a class="nav-link active" href="#">Lascia un commento</a>
+                <a class="nav-link disabled" href="#">Lascia un commento</a>
               </li>
               <li class="nav-item border border-4 border-warning-subtle mx-2">
                 <a class="nav-link active" href="#">Info</a>
@@ -57,7 +57,8 @@
                 </a>
                 <ul class="dropdown-menu"  style=" background-image: radial-gradient( rgba(110, 109, 16, 0.3) 20%,   rgba(110, 109, 16, 0.7) 80%)">
            @foreach($category as $category)
-                 <li><a class="dropdown-item" href="#">{{$category->category}}</a></li> 
+                 <li><a class="dropdown-item" href="{{route('genere', ['tipo'=>$category->category  
+                 ])}}">{{$category->category}}</a></li> 
                   @endforeach
                 </ul>
                 
