@@ -17,15 +17,6 @@ return new class extends Migration
             $table->string('titolo');
             $table->string('recensione');
 
-        /*     $table->unsignedBigInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreignId('user_id')->constrained(); */
-
-          /*   $table->unsignedBigInteger('film_id')->nullable();
-            $table->foreign('film_id')->references('id')->on('film');
-            $table->foreignId('film_id')->constrained();
- */
-           /*  --------FINIRE TABELLE */
         });
     }
 

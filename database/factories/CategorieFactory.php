@@ -10,8 +10,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class CategorieFactory extends Factory
 {
 
-   /*  protected $category=['horror', 'thriller','drama','comico']; */
-   
+    protected $category=['horror', 'thriller','drama','comico'];
+  protected $i=0;
 
     /**
      * Define the model's default state.
@@ -20,11 +20,12 @@ class CategorieFactory extends Factory
      */
     public function definition(): array
     {
-      
+    
        
         return [
-            
-            /* 'category'=>$this->category[ Factory::new($i)], */
+           
+            'category'=>$this->category[rand(1,3)],
         ];
+   
     }
 }

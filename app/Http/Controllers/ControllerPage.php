@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Http\Requests\recensioniRequest;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\uploadRequest;
 use App\Models\Categorie;
@@ -11,12 +13,18 @@ use App\Models\Film;
 use App\Models\Recensioni;
 use App\Models\User;
 
+use function Laravel\Prompts\alert;
+
 class ControllerPage extends Controller
 {
     public function welcome(Film $film){
-        
+        $FirstCarousel= DB::table('film')->where('id','<=','3')->get();
+      $horror=  DB::table('film')->where('film_id','3')->get();
+   $comico= DB::table('film')->where('film_id','2')->get();
+   $thriller= DB::table('film')->where('film_id','4')->get();
+   $drama= DB::table('film')->where('film_id','6')->get();
             $film=Film::all();
-            return view('pages/welcome', compact('film'));
+            return view('pages/welcome', compact('film','horror','comico','thriller','drama', 'FirstCarousel'));
     }
 
     public function store(Film $film){
@@ -49,7 +57,6 @@ class ControllerPage extends Controller
       $film= Film::create([
             'name'=>$request->input('nametitolo'),
             'descrizione'=>$request->input('descrizione'),
-          /*   'film_id'=>rand(1,6), */
             'film_id'=>$request->genere,
             'image'=> $path_image,
             
@@ -66,7 +73,8 @@ class ControllerPage extends Controller
 
     public function titolo(Film $film, Recensioni $recensioni,Categorie $category, User $user){
       
-       
+     
+
         $category=Categorie::all();
         $user=User::all();
         $recensioni=Recensioni::all();
@@ -75,12 +83,31 @@ class ControllerPage extends Controller
     }
 
 
-    public function genere(Film $film){
+    public function genere( Categorie $category, $tipo){
+      $categoria= Categorie::where('category', $tipo);
    $horror=  DB::table('film')->where('film_id','3')->get();
- return view('pages/genere',['horror'=>$horror]);
+   $comico= DB::table('film')->where('film_id','2')->get();
+   $thriller= DB::table('film')->where('film_id','4')->get();
+   $drama= DB::table('film')->where('film_id','6')->get();
+
+ return view('pages/genere',compact('categoria','horror','comico', 'thriller', 'drama', 'tipo'));
     }
 
+    public function recensione(Request $request,  $user, $filmid){
 
+      /* $request->validated(); */
+
+      $recensione= Recensioni::create([
+        'titolo'=>$request->input('titolo'),
+        'recensione'=>$request->input('recensione'),
+        'user_id'=>$user,
+        'film_id'=>$filmid,
+      ]);
+
+   return  redirect()->route('store');
+
+
+}
 }
 
   

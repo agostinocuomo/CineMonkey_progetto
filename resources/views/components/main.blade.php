@@ -26,10 +26,10 @@
 
 
 
-<body>
+<body class="jungle-background">
 {{--     NAVBAR-------------- --}}
     <header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary" style=" background-image: radial-gradient( rgba(110, 109, 16, 0.3) 20%,   rgba(110, 109, 16, 0.7) 80%)">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bamboo-effect" {{-- style=" background-image: var(--coloreNav)" --}}>
         <div class="container-fluid">
           <h2 class="navbar-brand" >CineMonkey</h2>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,9 +43,7 @@
               <li class="nav-item border border-4 border-warning-subtle mx-2">
                 <a class="nav-link active" href="{{route('store')}}">Tutti i prodotti</a>
               </li>
-              <li class="nav-item border border-4 border-warning-subtle mx-2">
-                <a class="nav-link disabled" href="#">Lascia un commento</a>
-              </li>
+            
               <li class="nav-item border border-4 border-warning-subtle mx-2">
                 <a class="nav-link active" href="#">Info</a>
               </li>
@@ -57,8 +55,7 @@
                 </a>
                 <ul class="dropdown-menu"  style=" background-image: radial-gradient( rgba(110, 109, 16, 0.3) 20%,   rgba(110, 109, 16, 0.7) 80%)">
            @foreach($category as $category)
-                 <li><a class="dropdown-item" href="{{route('genere', ['tipo'=>$category->category  
-                 ])}}">{{$category->category}}</a></li> 
+                 <li><a class="dropdown-item" href="{{route('genere', ['tipo'=>$category])}}">{{$category->category}} </a></li> 
                   @endforeach
                 </ul>
                 

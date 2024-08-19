@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('recensionis', function (Blueprint $table) {
+        Schema::table('film', function (Blueprint $table) {
             $table->unsignedBigInteger('film_id')->nullable();
-            $table->foreign('film_id')->references('id')->on('film');
+            $table->foreign('film_id')->references('id')->on('categories');
             /* $table->foreignId('film_id')->constrained(); */
         });
     }
@@ -23,7 +23,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('recensionis', function (Blueprint $table) {
+        Schema::table('film', function (Blueprint $table) {
             $table->dropColumn('film_id');
             $table->dropForeign('film_id');
         });

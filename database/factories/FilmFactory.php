@@ -2,8 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Film;
-use App\Models\Categorie;
+
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;

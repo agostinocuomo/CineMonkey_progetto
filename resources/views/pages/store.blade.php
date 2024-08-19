@@ -3,7 +3,7 @@
 
  {{--    TUTTI I PRODOTTI--------- --}}
  
-    <div class="d-flex flex-wrap justify-content-between">
+    <div class="d-flex flex-wrap justify-content-between m-3">
  @foreach($film as $titolo)
 
  <div class="card" style="width: 18rem;">
