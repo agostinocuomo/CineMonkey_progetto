@@ -104,7 +104,7 @@ class ControllerPage extends Controller
         'film_id'=>$filmid,
       ]);
 
-   return  redirect()->route('store');
+   return  redirect()->route('titolo', ['film'=>$filmid]);
 
 
 }

@@ -1,11 +1,16 @@
-<x-main>
+<x-main >
 <x-slot:vite></x-slot>
-<div>
+<div style="overflow-x: hidden">
+  <div class=" container-fluid">
 
-            <div style="background-image: url('@if(Storage::disk('local')->exists($film->image) )    {{Storage::url($film->image)}}  @else {{$film->image}} @endif'); height:700px; width:100%; background-repeat:none; background-size:cover;">
-  
+
+    <div class="row">
+
+            <div id="imgTitolo" style="background-image: url('@if(Storage::disk('local')->exists($film->image) )    {{Storage::url($film->image)}}  @else {{$film->image}} @endif'); " ></div>
     </div>
+
   
+    <div class="row">
     <h1 class="text-center">{{$film->name}}</h1>
     <p class="text-center">{{$film->descrizione}}</p>
     <h3 class="text-center">{{$film->category->category ?? null}} </h3>
@@ -14,9 +19,10 @@
 
 
 {{-- ----------FORM INVIO RECENSIONI --}}
-<div class=" d-flex flex-row justify-content-between">
+
+  <div class="row">
     @auth
-    <aside class="w-25 m-5 ">
+    <aside class="w-50 w-lg-25 m-5 col-12 col-lg-5">
         <?php
             $user=  Auth::user()->id;
             $filmid=  $film->id;
@@ -49,9 +55,10 @@
 
 @endauth
 {{-- --------RECENSIONI --}}
-<div class="d-flex flex-column" style="max-width: 70%">
-<h1 class=" bamboo-effect m-5 text-center w-100 border border-3 border-dark " style="height: 100px">Tutte le recensioni</h1>
-    <div class=" d-flex flex-wrap justify-content-between ">
+
+<div class="d-flex flex-column col-12 col-lg-5" >
+  <h1 class=" bamboo-effect m-5 text-center w-100 border border-3 border-dark " style="height: 100px">Tutte le recensioni</h1>
+    <div class=" d-flex flex-wrap justify-content-start ">
     @foreach($recensioni as $recensione) 
     @if($recensione->film_id == $film->id)
     <div class=" d-flex flex-wrap flex-column  border border-3 border-warning bamboo-effect m-2" style="max-width:300px; max-height:500px">
@@ -61,15 +68,15 @@
     
     <h3>Autore: {{$recensione->user->name ?? null}}</h3>
     
-    <h3>{{$recensione->film->name}}</h3>
+   {{--  <h3>{{$recensione->film->name}}</h3> --}}
     </div>
  
     @endif
     @endforeach
+    </div>
+  </div>
 </div>
 </div>
-</div>
-
 </x-main>
 
 

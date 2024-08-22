@@ -67,7 +67,11 @@
            
             @auth
             <h2>Ciao, {{Auth::user()->name}}</h2>
+
+            @if(Auth::user()->admin== 1)
             <a  type="button" class="btn text-dark" href="{{route('update')}}"  style=" background-image: linear-gradient( rgba(32, 75, 45, 0.884) 30%,   rgba(28, 197, 42, 0.7) 50%)">Aggiungi titoli</a>
+            @endif
+
             <form action="{{route('logout')}}" method="POST">
               @csrf
 

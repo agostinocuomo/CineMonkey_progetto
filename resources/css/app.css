@@ -127,3 +127,17 @@ body{
   opacity: 0.3;
   pointer-events: none;
 }
+
+/* ------imgTitolo */
+
+#imgTitolo{
+  height:700px; width:100%; background-repeat:none; background-size:cover;
+}
+
+/* ------------MEDIA */
+
+@media only screen and (max-width: 600px) {
+  #imgTitolo {
+    height: 400px;
+  };
+}
