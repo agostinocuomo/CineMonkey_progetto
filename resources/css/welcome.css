@@ -15,25 +15,6 @@ body{
     height: 700px;
   }
 
-/*   .FirstSwiper>.swiper-wrapper>.swiper-slide:nth-child(1){
-    
-    background-image: url("/public\sfondoinformatica.jpg") ;
-    background-size: cover;
- 
-
-  }
-
-  .FirstSwiper>.swiper-wrapper>.swiper-slide:nth-child(2){
-    background-image: url("/public\aulab.png");
-    background-size: cover;
-  
-  }
-
-  .FirstSwiper>.swiper-wrapper>.swiper-slide:nth-child(3){
-    background-image: url("/public\Stick-Person-Giving-A-Thumbs-Up-70539448-1.png");
-    background-size: cover;
-   
-  } */
 
 
 
@@ -68,9 +49,19 @@ body{
 /*  transform: scale(2); */
   z-index: 3;
   color:black;
-  /* position: absolute;
-  top: 50%;
-  right: 10%; */
 
 }
 
+
+
+
+/* --------------MEDIA */
+@media only screen and (max-width: 600px) {
+  #slide{
+   box-sizing: 300px 200px;
+  };
+  #slide2{
+   
+ 
+  };
+}

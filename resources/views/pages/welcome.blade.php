@@ -10,7 +10,7 @@
       @forEach($FirstCarousel as $first)
       <div class="swiper-slide" style="background-image: url( @if(Storage::disk('local')->exists($first->image))
         {{Storage::url($first->image)}}
-        @else {{$first->image}} @endif); background-size:cover; background-repeat:none;"><h1 class="fs-1 text-center">{{$first->name}}</h1></div>
+        @else {{$first->image}} @endif); background-size:cover; background-repeat:none; background-position: center; "><h1 class="fs-1 text-center">{{$first->name}}</h1></div>
       @endforeach
     </div>
     <!-- If we need pagination -->
@@ -28,16 +28,16 @@
 <div class="diviso bamboo-effect"></div>
 
 {{-- SECONDO SWIPER---------- --}}
+<section>
 <div class="swiper mySwiper " style="overflow-y: visible; overflow-x:clip ">
   <div class="swiper-wrapper " >
 
     @foreach($film as $titolo)
 
     
-    <a href="{{route('titolo', ['film'=>$titolo])}}" class="swiper-slide " id="slide" value="<?php echo $titolo->name ?>" value2="<?php echo $titolo->descrizione ?>" value3="<?php echo $titolo ?>" style="background-image: url( @if(Storage::disk('local')->exists($titolo->image))
+    <a href="{{route('titolo', ['film'=>$titolo])}}" class="swiper-slide" id="slide" value="<?php echo $titolo->name ?>" value2="<?php echo $titolo->descrizione ?>" value3="<?php echo $titolo ?>" style="background-image: url( @if(Storage::disk('local')->exists($titolo->image))
     {{Storage::url($titolo->image)}}
-    @else {{$titolo->image}} @endif); ">
-
+    @else {{$titolo->image}} @endif); background-position: center; ">
     </a>
    
    @endforeach
@@ -79,26 +79,32 @@
         
 
           });
+          
 </script> 
+</section>
 
 
+<section>
 <div class="diviso bamboo-effect"> <h1>Genere: Horror</h1></div>
+
 
 {{-- TERZO SWIPER---------- --}}
 <div class="swiper mySwiper " style="overflow-y: visible; overflow-x:clip ">
   <div class="swiper-wrapper">
 
+   
+
     @foreach($horror as $titolo)
-
-
-
-    <a href="" class="swiper-slide " id="slide2" style="background-image: url( @if(Storage::disk('local')->exists($titolo->image) )
     
+   
+
+    <a href="{{route('titolo', ['film'=> $titolo->id])}}" class="swiper-slide" value="<?php echo $titolo->name ?>" value2="<?php echo $titolo->descrizione ?>"  id="slide2" style="background-image: url( @if(Storage::disk('local')->exists($titolo->image) )
     {{Storage::url($titolo->image)}}
     @else {{$titolo->image}} @endif
-   )">
-      
-     </a>
+   ); background-position: center;">
+    <?php echo $titolo->name?>
+    
+    </a>
 @endforeach
   </div>
   <div class="swiper-pagination"></div>
@@ -136,6 +142,7 @@
 
           });
 </script> 
+</section>
 
 
 

@@ -6,7 +6,7 @@
 
     <div class="row">
 
-            <div id="imgTitolo" style="background-image: url('@if(Storage::disk('local')->exists($film->image) )    {{Storage::url($film->image)}}  @else {{$film->image}} @endif'); " ></div>
+            <div id="imgTitolo" style="background-image: url('@if(Storage::disk('local')->exists($film->image) )    {{Storage::url($film->image)}}  @else {{$film->image}} @endif'); background-position:center" ></div>
     </div>
 
   
@@ -57,7 +57,7 @@
 {{-- --------RECENSIONI --}}
 
 <div class="d-flex flex-column col-12 col-lg-5" >
-  <h1 class=" bamboo-effect m-5 text-center w-100 border border-3 border-dark " style="height: 100px">Tutte le recensioni</h1>
+  <h1 class=" bamboo-effect  text-center w-100 border border-3 border-dark " style="height: 100px">Tutte le recensioni</h1>
     <div class=" d-flex flex-wrap justify-content-start ">
     @foreach($recensioni as $recensione) 
     @if($recensione->film_id == $film->id)

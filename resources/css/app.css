@@ -126,6 +126,7 @@ body{
       transparent 70%);
   opacity: 0.3;
   pointer-events: none;
+  
 }
 
 /* ------imgTitolo */
@@ -140,4 +141,5 @@ body{
   #imgTitolo {
     height: 400px;
   };
+  
 }
