@@ -56,12 +56,4 @@ body{
 
 
 /* --------------MEDIA */
-@media only screen and (max-width: 600px) {
-  #slide{
-   box-sizing: 300px 200px;
-  };
-  #slide2{
-   
- 
-  };
-}
+

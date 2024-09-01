@@ -22,7 +22,7 @@ class ControllerPage extends Controller
       $horror=  DB::table('film')->where('film_id','3')->get();
    $comico= DB::table('film')->where('film_id','2')->get();
    $thriller= DB::table('film')->where('film_id','4')->get();
-   $drama= DB::table('film')->where('film_id','6')->get();
+   $drama= DB::table('film')->where('film_id','7')->get();
             $film=Film::all();
             return view('pages/welcome', compact('film','horror','comico','thriller','drama', 'FirstCarousel'));
     }
@@ -93,9 +93,9 @@ class ControllerPage extends Controller
  return view('pages/genere',compact('categoria','horror','comico', 'thriller', 'drama', 'tipo'));
     }
 
-    public function recensione(Request $request,  $user, $filmid){
+    public function recensione(recensioniRequest $request,  $user, $filmid){
 
-      /* $request->validated(); */
+      $request->validated();
 
       $recensione= Recensioni::create([
         'titolo'=>$request->input('titolo'),
@@ -105,9 +105,8 @@ class ControllerPage extends Controller
       ]);
 
    return  redirect()->route('titolo', ['film'=>$filmid]);
-
-
 }
+
 }
 
   
