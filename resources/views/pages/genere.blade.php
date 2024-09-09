@@ -7,14 +7,9 @@
 
 <div class="d-flex flex-wrap justify-content-between m-3">
 @switch($tipo)
-    @case(1)
+    @case('Thriller')
     @forEach($thriller as $thriller)
-    <div class="card my-3" style="width: 18rem; height:500px; overflow:hidden">
-        <img src="@if(Storage::disk('local')->exists($thriller->image) )    {{Storage::url($thriller->image)}}  @else {{$thriller->image}} @endif" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h1>{{$thriller->name}}</h1>
-        </div>
-      </div>
+  
     <a href="{{ route('titolo', ['film'=> $thriller->id]) }}">
         <div class="card" style="width: 18rem; height:500px; overflow:hidden">
             <img src="@if(Storage::disk('local')->exists($thriller->image) )    {{Storage::url($thriller->image)}}  @else {{$thriller->image}} @endif" class="card-img-top" alt="...">
@@ -25,14 +20,9 @@
     </a>
      @endforeach
         @break
-    @case(2)
+    @case('Commedy')
     @forEach($comico as $comico)
-    <div class="card my-3" style="width: 18rem; height:500px; overflow:hidden">
-        <img src="@if(Storage::disk('local')->exists($comico->image) )    {{Storage::url($comico->image)}}  @else {{$comico->image}} @endif" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h1>{{$comico->name}}</h1>
-        </div>
-      </div>
+  
     <a href="{{ route('titolo', ['film'=> $comico->id]) }}">
         <div class="card" style="width: 18rem; height:500px; overflow:hidden">
             <img src="@if(Storage::disk('local')->exists($comico->image) )    {{Storage::url($comico->image)}}  @else {{$comico->image}} @endif" class="card-img-top" alt="...">
@@ -43,15 +33,10 @@
     </a>
     @endforeach
         @break
-     @case(5)
+     @case('Horror')
     
      @forEach($horror as $horror)
-     <div class="card my-3" style="width: 18rem; height:500px; overflow:hidden">
-        <img src="@if(Storage::disk('local')->exists($horror->image) )    {{Storage::url($horror->image)}}  @else {{$horror->image}} @endif" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h1>{{$horror->name}}</h1>
-        </div>
-      </div>
+  
     <a href="{{ route('titolo', ['film'=>$horror->id]) }}">
         <div class="card" style="width: 18rem; height:500px; overflow:hidden">
             <img src="@if(Storage::disk('local')->exists($horror->image) )    {{Storage::url($horror->image)}}  @else {{$horror->image}} @endif" class="card-img-top" alt="...">
@@ -63,11 +48,22 @@
      @endforeach
             @break
 
-        @case(6)
-        @forEach($drama as $drama)
-        <h1>{{$drama->name}}</h1>
-     <p>{{$drama->descrizione}}</p>
+      
+     @case('Drama')
+    
+     @forEach($drama as $drama)
+    
+    <a href="{{ route('titolo', ['film'=>$drama->id]) }}">
+        <div class="card" style="width: 18rem; height:500px; overflow:hidden">
+            <img src="@if(Storage::disk('local')->exists($drama->image) )    {{Storage::url($drama->image)}}  @else {{$drama->image}} @endif" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h1>{{$drama->descrizione}}</h1>
+            </div>
+          </div>
+    </a>
      @endforeach
+            @break
+          
     @default      
 @endswitch
 </div>

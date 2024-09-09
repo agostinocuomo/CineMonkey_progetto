@@ -19,10 +19,10 @@ class ControllerPage extends Controller
 {
     public function welcome(Film $film){
         $FirstCarousel= DB::table('film')->where('id','<=','3')->get();
-      $horror=  DB::table('film')->where('film_id','3')->get();
-   $comico= DB::table('film')->where('film_id','2')->get();
-   $thriller= DB::table('film')->where('film_id','4')->get();
-   $drama= DB::table('film')->where('film_id','7')->get();
+      $horror=  DB::table('film')->where('film_id','2')->get();
+   $comico= DB::table('film')->where('film_id','1')->get();
+   $thriller= DB::table('film')->where('film_id','3')->get();
+   $drama= DB::table('film')->where('film_id','4')->get();
             $film=Film::all();
             return view('pages/welcome', compact('film','horror','comico','thriller','drama', 'FirstCarousel'));
     }
@@ -85,10 +85,12 @@ class ControllerPage extends Controller
 
     public function genere( Categorie $category, $tipo){
       $categoria= Categorie::where('category', $tipo);
-   $horror=  DB::table('film')->where('film_id','3')->get();
-   $comico= DB::table('film')->where('film_id','2')->get();
-   $thriller= DB::table('film')->where('film_id','4')->get();
-   $drama= DB::table('film')->where('film_id','6')->get();
+   $horror=  DB::table('film')->where('film_id','2')->get();
+   $comico= DB::table('film')->where('film_id','1')->get();
+   $thriller= DB::table('film')->where('film_id','3')->get();
+   $drama= DB::table('film')->where('film_id','4')->get();
+ 
+   
 
  return view('pages/genere',compact('categoria','horror','comico', 'thriller', 'drama', 'tipo'));
     }

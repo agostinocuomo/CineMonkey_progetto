@@ -10,7 +10,7 @@
       @forEach($FirstCarousel as $first)
       <div class="swiper-slide" style="background-image: url( @if(Storage::disk('local')->exists($first->image))
         {{Storage::url($first->image)}}
-        @else {{$first->image}} @endif); background-size:cover; background-repeat:none; background-position: center; "><h1 class="fs-1 text-center">{{$first->name}}</h1></div>
+        @else {{$first->image}} @endif); background-size: contain; background-repeat:no-repeat; background-position: center; "><h1 class="fs-1 text-center">{{$first->name}}</h1></div>
       @endforeach
     </div>
     <!-- If we need pagination -->
@@ -25,7 +25,9 @@
   </div>
 </section>
 
+
 <div class="diviso bamboo-effect"></div>
+
 
 {{-- SECONDO SWIPER---------- --}}
 <section>
@@ -35,9 +37,9 @@
     @foreach($film as $titolo)
 
     
-    <a href="{{route('titolo', ['film'=>$titolo])}}" class="swiper-slide " id="slide" value="<?php echo $titolo->name ?>" value2="<?php echo $titolo->descrizione ?>" value3="<?php echo $titolo ?>" style="background-image: url( @if(Storage::disk('local')->exists($titolo->image))
+    <a href="{{route('titolo', ['film'=>$titolo->id])}}" class="swiper-slide " id="slide" value="<?php echo $titolo->name ?>" value2="<?php echo $titolo->descrizione ?>" value3="<?php echo $titolo ?>" style="background-image: url( @if(Storage::disk('local')->exists($titolo->image))
     {{Storage::url($titolo->image)}}
-    @else {{$titolo->image}} @endif); background-position: center; ">
+    @else don't look in the basement.jfif @endif); background-position: center; backgorund-size:contain; background-repeat: no-repeat">
     </a>
  
    @endforeach
@@ -62,7 +64,7 @@
            /*  element.classList.remove('.swiper-slide'); */
             element.classList.add('open');
             element.innerHTML="";
-           element.innerHTML= `<h1 class="text-center">`+element.getAttribute('value')+' </h1>'+"<br>"+'<p class="text-center">'+element.getAttribute('value2')+'</p>';
+           element.innerHTML= `<h1 class="text-center" style="color:white">`+element.getAttribute('value')+' </h1>'+"<br>"+'<p class="text-center" style="color:white">'+element.getAttribute('value2')+'</p>';
           
             console.log('successo');
           
@@ -100,7 +102,7 @@
     <a href="{{route('titolo', ['film'=> $titolo->id])}}" class="swiper-slide" value="<?php echo $titolo->name ?>" value2="<?php echo $titolo->descrizione ?>"  id="slide2" style="background-image: url( @if(Storage::disk('local')->exists($titolo->image) )
     {{Storage::url($titolo->image)}}
     @else {{$titolo->image}} @endif
-   ); background-position: center;">
+   ); background-position: center; background-repeat: no-repeat; background-size:contain;">
     <?php echo $titolo->name?>
     
     </a>
@@ -130,7 +132,7 @@
            /*  element.classList.remove('.swiper-slide'); */
             element.classList.add('open');
             element.innerHTML="";
-           element.innerHTML= `<h1 class="text-center">`+element.getAttribute('value')+' </h1>'+"<br>"+'<p class="text-center">'+element.getAttribute('value2')+'</p>';
+           element.innerHTML= `<h1 class="text-center" style="color:white">`+element.getAttribute('value')+' </h1>'+"<br>"+'<p class="text-center" style="color:white">'+element.getAttribute('value2')+'</p>';
           
             console.log('successo');
           
@@ -168,7 +170,7 @@
       <a href="{{route('titolo', ['film'=> $titolo->id])}}" class="swiper-slide" value="<?php echo $titolo->name ?>" value2="<?php echo $titolo->descrizione ?>"  id="slide5" style="background-image: url( @if(Storage::disk('local')->exists($titolo->image) )
       {{Storage::url($titolo->image)}}
       @else {{$titolo->image}} @endif
-     ); background-position: center;">
+     ); background-position: center; background-repeat: no-repeat; background-size:contain">
       <?php echo $titolo->name?>
       
       </a>
@@ -199,7 +201,7 @@
              
             element.classList.add('open');
               element.innerHTML="";
-             element.innerHTML= `<h1 class="text-center">`+element.getAttribute('value')+' </h1>'+"<br>"+'<p class="text-center">'+element.getAttribute('value2')+'</p>';
+             element.innerHTML= `<h1 class="text-center" style="color:white">`+element.getAttribute('value')+' </h1>'+"<br>"+'<p class="text-center" style="color:white">'+element.getAttribute('value2')+'</p>';
             
               console.log('successo');
             
@@ -239,7 +241,7 @@
         <a href="{{route('titolo', ['film'=> $titolo->id])}}" class="swiper-slide" value="<?php echo $titolo->name ?>" value2="<?php echo $titolo->descrizione ?>"  id="slide3" style="background-image: url( @if(Storage::disk('local')->exists($titolo->image) )
         {{Storage::url($titolo->image)}}
         @else {{$titolo->image}} @endif
-       ); background-position: center;">
+       ); background-position: center; background-repeat: no-repeat; background-size: contain">
         <?php echo $titolo->name?>
         
         </a>
@@ -268,7 +270,7 @@
                
               element.classList.add('open');
                 element.innerHTML="";
-               element.innerHTML= `<h1 class="text-center">`+element.getAttribute('value')+' </h1>'+"<br>"+'<p class="text-center">'+element.getAttribute('value2')+'</p>';
+               element.innerHTML= `<h1 class="text-center" style="color:white">`+element.getAttribute('value')+' </h1>'+"<br>"+'<p class="text-center" style="color:white">'+element.getAttribute('value2')+'</p>';
               
                 console.log('successo');
               
@@ -293,7 +295,7 @@
       <div class="diviso bamboo-effect"> <h1>Genere: Thriller</h1></div>
       @if($thriller != [])
      
-      {{-- QUARTO SWIPER---------- --}}
+      {{-- QUINTO SWIPER---------- --}}
       <div class="swiper mySwiper " style="overflow-y: visible; overflow-x:clip ">
         <div class="swiper-wrapper">
       
@@ -305,7 +307,7 @@
           <a href="{{route('titolo', ['film'=> $titolo->id])}}" class="swiper-slide" value="<?php echo $titolo->name ?>" value2="<?php echo $titolo->descrizione ?>"  id="slide4" style="background-image: url( @if(Storage::disk('local')->exists($titolo->image) )
           {{Storage::url($titolo->image)}}
           @else {{$titolo->image}} @endif
-         ); background-position: center;">
+         ); background-position: center; background-repeat: no-repeat; background-size:contain">
           <?php echo $titolo->name?>
           
           </a>
@@ -332,10 +334,9 @@
            
                element.addEventListener('mouseover',()=>{
                
-                 
+                element.innerHTML="";
                 element.classList.add('open');
-                  element.innerHTML="";
-                 element.innerHTML= `<h1 class="text-center">`+element.getAttribute('value')+' </h1>'+"<br>"+'<p class="text-center">'+element.getAttribute('value2')+'</p>';
+                 element.innerHTML= `<h1 class="text-center" style="color:white">`+element.getAttribute('value')+' </h1>'+"<br>"+'<p class="text-center" style="color:white">'+element.getAttribute('value2')+'</p>';
                 
                   console.log('successo');
                 
@@ -344,7 +345,7 @@
       
                  element.addEventListener('mouseout', ()=>{
               
-                 
+              
                  element.classList.remove('open');
                   element.innerHTML="";
                  

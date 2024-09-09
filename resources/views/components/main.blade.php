@@ -55,7 +55,7 @@
                 </a>
                 <ul class="dropdown-menu"  style=" background-image: radial-gradient( rgba(110, 109, 16, 0.3) 20%,   rgba(110, 109, 16, 0.7) 80%)">
            @foreach($category as $category)
-                 <li><a class="dropdown-item" href="{{route('genere', ['tipo'=>$category])}}">{{$category->category}} </a></li> 
+                 <li><a class="dropdown-item" href="{{route('genere', ['tipo'=>$category->category])}}">{{$category->category}} </a></li> 
                   @endforeach
                 </ul>
                 
@@ -83,10 +83,10 @@
                 <a type="button" class="btn m-3" href="{{route('loginpage')}}" style=" background-image: linear-gradient( rgba(32, 75, 45, 0.884) 30%,   rgba(28, 197, 42, 0.7) 50%)" >Login</a>
             @endauth
            
-            <form class="d-flex" role="search">
+            {{-- <form class="d-flex" role="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+            </form> --}}
           </div>
         </div>
       </nav>

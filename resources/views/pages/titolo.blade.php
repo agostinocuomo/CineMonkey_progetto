@@ -6,14 +6,14 @@
 
     <div class="row">
 
-            <div id="imgTitolo" style="background-image: url('@if(Storage::disk('local')->exists($film->image) )    {{Storage::url($film->image)}}  @else {{$film->image}} @endif'); background-position:center" ></div>
+            <div id="imgTitolo" style="background-image: url('@if(Storage::disk('local')->exists($film->image) )    {{Storage::url($film->image)}}  @else {{$film->image}} @endif'); background-position:center; background-repeat: no-repeat; background-size:contain" ></div>
     </div>
 
   
     <div class="row">
     <h1 class="text-center">{{$film->name}}</h1>
     <p class="text-center">{{$film->descrizione}}</p>
-    <h3 class="text-center">{{$film->category->category ?? null}} </h3>
+{{--     <h3 class="text-center">{{$film->category->category ?? null}} </h3> --}}
 </div>
 
 
@@ -34,8 +34,9 @@
             <div class="mb-3">
               <label for="titolo" class="form-label">titolo</label>
               <input type="name" class="form-control" id="titolo" name="titolo" aria-describedby="emailHelp">
+         
             </div>
-
+           
             @error('titolo')
     <span>{{ $message }}</span>
     @enderror
@@ -65,8 +66,8 @@
     <h1>{{$recensione->titolo}}</h1>
     
     <p>{{$recensione->recensione}}</p>
-    
-    <h3>Autore: {{$recensione->user->name ?? null}}</h3>
+   
+    <h3>Autore: <?php echo $recensione->user->name ?? "agostino"?></h3>
     
    {{--  <h3>{{$recensione->film->name}}</h3> --}}
     </div>

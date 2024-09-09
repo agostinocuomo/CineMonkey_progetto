@@ -11,7 +11,7 @@ class Recensioni extends Model
 
     protected $fillable =['titolo','recensione','user_id','film_id'];
 
-    public function User(){
+    public function user(){
         return $this->belongsTo(User::class, 'id');
      }
 
